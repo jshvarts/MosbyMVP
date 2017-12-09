@@ -1,5 +1,6 @@
 package com.jshvarts.mosbymvp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
@@ -24,18 +25,15 @@ class MainActivity : MvpActivity<GreetingContract.View, GreetingPresenter>(), Gr
         setContentView(R.layout.activity_main)
 
         ButterKnife.bind(this)
+
+        //retainInstance = true
     }
 
     override fun createPresenter() = GreetingPresenter()
 
     @OnClick(R.id.hello_greeting_button)
-    override fun onHelloButtonClicked() {
+    override fun onGreetingButtonClicked() {
         presenter.loadHello()
-    }
-
-    @OnClick(R.id.goodbye_greeting_button)
-    override fun onGoodbyeButtonClicked() {
-        presenter.loadGoodbye()
     }
 
     override fun displayGreeting(greetingText: String) {
@@ -52,5 +50,10 @@ class MainActivity : MvpActivity<GreetingContract.View, GreetingPresenter>(), Gr
 
     override fun displayError() {
         Toast.makeText(applicationContext, getString(R.string.greeting_loading_error), Toast.LENGTH_LONG).show()
+    }
+
+    @OnClick(R.id.open_other_button)
+    override fun onOpenOtherClicked() {
+        startActivity(Intent(this, OtherActivity::class.java))
     }
 }

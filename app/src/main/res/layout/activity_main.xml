@@ -6,26 +6,21 @@
     android:orientation="vertical"
     tools:context="com.jshvarts.mosbymvp.MainActivity">
 
-    <LinearLayout
+    <Button
+        android:id="@+id/hello_greeting_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp">
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="Say Hello"/>
 
-        <Button
-            android:id="@+id/hello_greeting_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Say Hello"/>
-
-        <Button
-            android:id="@+id/goodbye_greeting_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Say Goodbye"/>
-    </LinearLayout>
+    <Button
+        android:id="@+id/open_other_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="Other Activity"/>
 
     <FrameLayout
         android:layout_width="match_parent"

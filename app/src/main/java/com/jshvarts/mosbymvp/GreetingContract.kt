@@ -5,8 +5,8 @@ import com.hannesdorfmann.mosby3.mvp.MvpView
 
 interface GreetingContract {
     interface View : MvpView {
-        fun onHelloButtonClicked()
-        fun onGoodbyeButtonClicked()
+        fun onGreetingButtonClicked()
+        fun onOpenOtherClicked()
         fun showLoading()
         fun hideLoading()
         fun displayGreeting(greetingText: String)
@@ -15,6 +15,5 @@ interface GreetingContract {
 
     interface Presenter : MvpPresenter<View> {
         fun loadHello()
-        fun loadGoodbye()
     }
 }
