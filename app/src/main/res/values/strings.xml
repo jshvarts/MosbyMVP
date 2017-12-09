@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MosbyMVP</string>
+    <string name="app_name">Hello World Mosby MVP</string>
+    <string name="greeting_loading_error">Error loading greeting</string>
 </resources>
