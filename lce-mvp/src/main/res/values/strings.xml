@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Loading-Content-Error MVP</string>
+    <string name="error_loading">Error loading notes</string>
+    <string name="error_loading_retry">Error loading notes. Please retry.</string>
+</resources>
