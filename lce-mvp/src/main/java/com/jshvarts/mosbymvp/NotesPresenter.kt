@@ -5,7 +5,6 @@ import com.jshvarts.mosbymvp.domain.GetNotesUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import timber.log.Timber
 
 class NotesPresenter : MvpBasePresenter<NotesContract.View>(), NotesContract.Presenter {
     private val disposables: CompositeDisposable = CompositeDisposable()
@@ -22,9 +21,7 @@ class NotesPresenter : MvpBasePresenter<NotesContract.View>(), NotesContract.Pre
 
     override fun detachView(retainInstance: Boolean) {
         super.detachView(retainInstance)
-        Timber.d("In detachView " + retainInstance)
         if (!retainInstance) {
-            Timber.d("Clearing disposables")
             disposables.clear()
         }
     }
