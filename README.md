@@ -2,9 +2,31 @@
 
 [![Build Status](https://travis-ci.org/jshvarts/MosbyMVP.svg?branch=master)](https://travis-ci.org/jshvarts/MosbyMVP)
 
-This is a work-in-progress
+This is a work-in-progress project.
 
-Example Todo app using [Mosby](https://github.com/sockeqwe/mosby/) implementing MVP pattern.
+This repo is to explore [Mosby](https://github.com/sockeqwe/mosby/) and [Mosby Conductor plug-in](https://github.com/sockeqwe/mosby-conductor/) implementing MVP pattern.
+
+Both Mosby and Conductor have excellent documentation on GitHub and at [Hannes Dorfmann's blog](http://hannesdorfmann.com/mosby/).
+ 
+Basic definitions: 
+* `ViewState` is used to preserve current view data such as loading in progress, data displayed, error displayed, etc. after configuration changes such as device rotation. 
+More details at [ViewState](http://hannesdorfmann.com/mosby/viewstate/)
+* LCE describes Loading-Content-Error flow typical of many Android apps where loading indicator (such as `ProgressBar`) is followed by displaying content or error. 
+
+## Modules in this repo
+
+*All examples implement MVP pattern*
+
+* Hello World
+    * Simple Hello World without handling `ViewState`
+* Hello World ViewState
+    * Simple Hello World with `ViewState` preserved across configuration changes.
+* LCE pull-to-refresh ViewState
+    * Todo-style notes screen using RecyclerView with `ViewState` preserved across configuration changes.
+* Mosby Conductor Hello World
+    * Simple Conductor using Mosby plug-in without handling `ViewState`
+* Mosby Conductor Hello World example with ViewState
+    * Simple Conductor using Mosby plug-in with `ViewState` preserved across configuration changes.
 
 ## License
 

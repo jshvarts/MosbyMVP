@@ -8,8 +8,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/basic-mvp" />
-            <option value="$PROJECT_DIR$/lce-mvp" />
+            <option value="$PROJECT_DIR$/conductor-hello-world" />
+            <option value="$PROJECT_DIR$/conductor-hello-world-viewstate" />
+            <option value="$PROJECT_DIR$/hello-world" />
+            <option value="$PROJECT_DIR$/hello-world-viewstate" />
+            <option value="$PROJECT_DIR$/lce-pull-to-refresh-viewstate" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
