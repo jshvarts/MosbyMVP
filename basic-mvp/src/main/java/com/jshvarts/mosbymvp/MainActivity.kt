@@ -58,7 +58,6 @@ class MainActivity : MvpViewStateActivity<GreetingContract.View, GreetingPresent
     }
 
     override fun showError() {
-        viewState.setShowError()
         Toast.makeText(applicationContext, getString(R.string.greeting_loading_error), Toast.LENGTH_LONG).show()
     }
 }

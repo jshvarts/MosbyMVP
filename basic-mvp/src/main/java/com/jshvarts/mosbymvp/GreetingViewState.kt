@@ -8,7 +8,6 @@ class GreetingViewState : RestorableViewState<GreetingContract.View> {
         private val KEY_DATA = "com.jshvarts.mosbymvp.GreetingViewState_greetingData"
         private val STATE_SHOW_DATA = 1
         private val STATE_SHOW_LOADING = 2
-        private val STATE_SHOW_ERROR = 3
     }
 
     private var state = STATE_SHOW_LOADING
@@ -37,15 +36,10 @@ class GreetingViewState : RestorableViewState<GreetingContract.View> {
         state = STATE_SHOW_LOADING
     }
 
-    fun setShowError() {
-        state = STATE_SHOW_ERROR
-    }
-
     override fun apply(view: GreetingContract.View, retained: Boolean) {
         when (state) {
             STATE_SHOW_DATA -> view.showGreeting(data!!)
             STATE_SHOW_LOADING -> view.showLoading()
-            STATE_SHOW_ERROR -> view.showError()
         }
     }
 }
