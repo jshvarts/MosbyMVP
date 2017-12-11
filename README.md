@@ -8,7 +8,13 @@ This repo is to explore [Mosby](https://github.com/sockeqwe/mosby/) and [Mosby C
 
 Both Mosby and Conductor have excellent documentation on GitHub and at [Hannes Dorfmann's blog](http://hannesdorfmann.com/mosby/).
  
-Basic definitions: 
+## Why use a library to implement MVP?
+
+**Problem:** Model-View-Presenter (MVP) is hard to implement correctly (bug-free). Handling view state is another big challenge. There are many different implementations of MVP out there.
+
+**Solution:** If there is a library that manages MVP wiring and view state so you can concentrate on your app logic and UI, why not check it out? 
+
+## Definitions 
 * `ViewState` is used to preserve current view data such as loading in progress, data displayed, error displayed, etc. after configuration changes such as device rotation. 
 More details at [ViewState](http://hannesdorfmann.com/mosby/viewstate/)
 * LCE describes Loading-Content-Error flow typical of many Android apps where loading indicator (such as `ProgressBar`) is followed by displaying content or error. 
@@ -17,16 +23,17 @@ More details at [ViewState](http://hannesdorfmann.com/mosby/viewstate/)
 
 *All examples implement MVP pattern*
 
-* Hello World
+* **Hello World**
     * Simple Hello World without handling `ViewState`
-* Hello World ViewState
+* **Hello World ViewState**
     * Simple Hello World with `ViewState` preserved across configuration changes.
-* LCE pull-to-refresh ViewState
+* **LCE pull-to-refresh ViewState**
     * Todo-style notes screen using RecyclerView with `ViewState` preserved across configuration changes.
-* Mosby Conductor Hello World
+* **Mosby Conductor Hello World**
     * Simple Conductor using Mosby plug-in without handling `ViewState`
-* Mosby Conductor Hello World example with ViewState
+* **Mosby Conductor Hello World with ViewState**
     * Simple Conductor using Mosby plug-in with `ViewState` preserved across configuration changes.
+* more examples coming soon...
 
 ## License
 

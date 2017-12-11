@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         router = Conductor.attachRouter(this, container, savedInstanceState)
         if (!router.hasRootController()) {
-            router.setRoot(RouterTransaction.with(GreetingView()))
+            router.setRoot(RouterTransaction.with(GreetingViewController()))
         }
     }
 

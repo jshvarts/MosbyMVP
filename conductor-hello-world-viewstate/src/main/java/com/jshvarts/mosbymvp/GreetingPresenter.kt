@@ -17,8 +17,8 @@ class GreetingPresenter : MvpBasePresenter<GreetingContract.View>(), GreetingCon
                 .subscribe({ ifViewAttached { view -> view.showGreeting(it) } }, { ifViewAttached { view -> view.showError() } }))
     }
 
-    override fun detachView() {
-        super.detachView()
+    override fun destroy() {
+        super.destroy()
         disposables.clear()
     }
 }
