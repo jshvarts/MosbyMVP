@@ -37,7 +37,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
 
     // Mosby
-    implementation "com.hannesdorfmann.mosby3:mvp:$mosbyVersion"
+    implementation "com.hannesdorfmann.mosby3:viewstate:$mosbyVersion"
 
     // ButterKnife
     implementation "com.jakewharton:butterknife:$butterKnifeVersion"

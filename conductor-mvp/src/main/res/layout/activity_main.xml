@@ -12,7 +12,15 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginBottom="10dp"
-        android:text="Show Greeting"/>
+        android:text="Say Hello"/>
+
+    <Button
+        android:id="@+id/open_other_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="Other Activity"/>
 
     <FrameLayout
         android:layout_width="match_parent"

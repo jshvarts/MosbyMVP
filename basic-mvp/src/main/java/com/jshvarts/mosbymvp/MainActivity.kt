@@ -1,6 +1,5 @@
 package com.jshvarts.mosbymvp
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
@@ -9,10 +8,9 @@ import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
-import com.hannesdorfmann.mosby3.mvp.MvpActivity
+import com.hannesdorfmann.mosby3.mvp.viewstate.MvpViewStateActivity
 
-
-class MainActivity : MvpActivity<GreetingContract.View, GreetingPresenter>(), GreetingContract.View {
+class MainActivity : MvpViewStateActivity<GreetingContract.View, GreetingPresenter, GreetingViewState>(), GreetingContract.View {
 
     @BindView(R.id.greeting_textview)
     lateinit var greetingTextView: TextView
@@ -25,18 +23,29 @@ class MainActivity : MvpActivity<GreetingContract.View, GreetingPresenter>(), Gr
         setContentView(R.layout.activity_main)
 
         ButterKnife.bind(this)
-
-        //retainInstance = true
     }
+
+    override fun onNewViewStateInstance() {
+        // no-op
+    }
+
+    override fun createViewState() = GreetingViewState()
 
     override fun createPresenter() = GreetingPresenter()
 
-    @OnClick(R.id.hello_greeting_button)
-    override fun onGreetingButtonClicked() {
-        presenter.loadHello()
+    override fun hideGreeting() {
+        greetingTextView.visibility = View.GONE
     }
 
-    override fun displayGreeting(greetingText: String) {
+    @OnClick(R.id.hello_greeting_button)
+    override fun onGreetingButtonClicked() {
+        viewState.setShowLoading()
+        presenter.loadGreeting()
+    }
+
+    override fun showGreeting(greetingText: String) {
+        viewState.setData(greetingText)
+        greetingTextView.visibility = View.VISIBLE
         greetingTextView.text = greetingText
     }
 
@@ -48,12 +57,8 @@ class MainActivity : MvpActivity<GreetingContract.View, GreetingPresenter>(), Gr
         loadingIndicator.visibility = View.GONE
     }
 
-    override fun displayError() {
+    override fun showError() {
+        viewState.setShowError()
         Toast.makeText(applicationContext, getString(R.string.greeting_loading_error), Toast.LENGTH_LONG).show()
-    }
-
-    @OnClick(R.id.open_other_button)
-    override fun onOpenOtherClicked() {
-        startActivity(Intent(this, OtherActivity::class.java))
     }
 }

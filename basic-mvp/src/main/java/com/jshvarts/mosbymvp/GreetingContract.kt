@@ -6,14 +6,14 @@ import com.hannesdorfmann.mosby3.mvp.MvpView
 interface GreetingContract {
     interface View : MvpView {
         fun onGreetingButtonClicked()
-        fun onOpenOtherClicked()
         fun showLoading()
         fun hideLoading()
-        fun displayGreeting(greetingText: String)
-        fun displayError()
+        fun hideGreeting()
+        fun showGreeting(greetingText: String)
+        fun showError()
     }
 
     interface Presenter : MvpPresenter<View> {
-        fun loadHello()
+        fun loadGreeting()
     }
 }

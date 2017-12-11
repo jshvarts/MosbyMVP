@@ -8,13 +8,13 @@ import io.reactivex.schedulers.Schedulers
 class GreetingPresenter : MvpBasePresenter<GreetingContract.View>(), GreetingContract.Presenter {
     private val disposables: CompositeDisposable = CompositeDisposable()
 
-    override fun loadHello() {
+    override fun loadGreeting() {
         disposables.add(GetGreetingUseCase.getHelloGreeting()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe { view?.showLoading() }
+                .doOnSubscribe { view?.hideGreeting(); view?.showLoading() }
                 .doFinally { view?.hideLoading() }
-                .subscribe({ view?.displayGreeting(it) }, { view?.displayError() }))
+                .subscribe({ view?.showGreeting(it) }, { view?.showError() }))
     }
 
     override fun detachView(retainInstance: Boolean) {
