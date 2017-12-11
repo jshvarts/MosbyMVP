@@ -10,7 +10,7 @@ import butterknife.ButterKnife
 import butterknife.OnClick
 import com.hannesdorfmann.mosby3.mvp.viewstate.MvpViewStateActivity
 
-class MainActivity : MvpViewStateActivity<GreetingContract.View, GreetingPresenter, GreetingViewState>(), GreetingContract.View {
+class MainActivity : MvpViewStateActivity<GreetingContract.View, GreetingContract.Presenter, GreetingViewState>(), GreetingContract.View {
 
     @BindView(R.id.greeting_textview)
     lateinit var greetingTextView: TextView
