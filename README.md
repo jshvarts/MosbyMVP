@@ -1,23 +1,22 @@
-# MosbyMVP
+# Getting Started with Mosby MVP
 
 [![Build Status](https://travis-ci.org/jshvarts/MosbyMVP.svg?branch=master)](https://travis-ci.org/jshvarts/MosbyMVP)
 
-This is a work-in-progress project.
-
-This repo is to explore [Mosby](https://github.com/sockeqwe/mosby/) and [Mosby Conductor plug-in](https://github.com/sockeqwe/mosby-conductor/) implementing MVP pattern.
+This repo is to explore [Mosby](https://github.com/sockeqwe/mosby/) and [Mosby Conductor plugin](https://github.com/sockeqwe/mosby-conductor/) implementing MVP pattern.
 
 Both Mosby and Conductor have excellent documentation on GitHub and at [Hannes Dorfmann's blog](http://hannesdorfmann.com/mosby/).
  
 ## Why use a library to implement MVP?
 
-**Problem:** Model-View-Presenter (MVP) is hard to implement correctly (bug-free). Handling view state is another big challenge. There are many different implementations of MVP out there.
+Model-View-Presenter (MVP) is hard to implement correctly (bug-free). Handling view state is another big challenge. There are many different implementations of MVP out there.
 
-**Solution:** If there is a library that manages MVP wiring and view state so you can concentrate on your app logic and UI, why not check it out? 
+If there is a library that manages MVP wiring and view state for you so you can concentrate on your app logic and UI, why not check it out? 
 
 ## Definitions 
 * `ViewState` is used to preserve current view data such as loading in progress, data displayed, error displayed, etc. after configuration changes such as device rotation. 
 More details at [ViewState](http://hannesdorfmann.com/mosby/viewstate/)
 * LCE describes Loading-Content-Error flow typical of many Android apps where loading indicator (such as `ProgressBar`) is followed by displaying content or error. 
+* Delegate Callbacks is a set of interfaces that Mosby uses internally which you are welcome to implement yourself instead of inheriting from base MVP classes. For instance, instead of extending `MvpActivity`, implement `MvpDelegateCallback` or instead of extending `MvpViewStateController` implement `MvpViewStateConductorDelegateCallback` and so forth.
 
 ## Modules in this repo
 
@@ -30,11 +29,11 @@ More details at [ViewState](http://hannesdorfmann.com/mosby/viewstate/)
 * **LCE pull-to-refresh ViewState**
     * Todo-style notes screen using RecyclerView with `ViewState` preserved across configuration changes.
 * **Mosby Conductor Hello World**
-    * Simple Conductor using Mosby plug-in without handling `ViewState`
+    * Simple Conductor using Mosby plugin without handling `ViewState`
 * **Mosby Conductor Hello World with ViewState**
-    * Simple Conductor using Mosby plug-in with `ViewState` preserved across configuration changes.
+    * Simple Conductor using Mosby plugin with `ViewState` preserved across configuration changes.
 * **Mosby Conductor LCE pull-to-refresh with ViewState**
-    * Conductor using Mosby plug-in LCE pull-to-refresh with `ViewState` preserved across configuration changes.
+    * Conductor using Mosby plugin LCE pull-to-refresh with `ViewState` preserved across configuration changes.
 * more examples coming soon...
 
 ## License
