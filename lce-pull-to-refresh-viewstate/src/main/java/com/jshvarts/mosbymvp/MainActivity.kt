@@ -10,7 +10,6 @@ import butterknife.ButterKnife
 import com.hannesdorfmann.mosby3.mvp.viewstate.lce.LceViewState
 import com.hannesdorfmann.mosby3.mvp.viewstate.lce.MvpLceViewStateActivity
 import com.hannesdorfmann.mosby3.mvp.viewstate.lce.data.ParcelableListLceViewState
-import com.jshvarts.mosbymvp.domain.Note
 
 class MainActivity : MvpLceViewStateActivity<SwipeRefreshLayout, List<Note>, NotesContract.View, NotesPresenter>(),
         NotesContract.View, SwipeRefreshLayout.OnRefreshListener {

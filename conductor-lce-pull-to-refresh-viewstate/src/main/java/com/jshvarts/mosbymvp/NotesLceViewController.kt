@@ -14,7 +14,6 @@ import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
 import com.hannesdorfmann.mosby3.conductor.viewstate.lce.MvpLceViewStateController
 import com.hannesdorfmann.mosby3.mvp.viewstate.lce.LceViewState
 import com.hannesdorfmann.mosby3.mvp.viewstate.lce.data.ParcelableListLceViewState
-import com.jshvarts.mosbymvp.domain.Note
 
 class NotesLceViewController : MvpLceViewStateController<SwipeRefreshLayout, List<Note>, NotesContract.View,
         NotesContract.Presenter>(), NotesContract.View, SwipeRefreshLayout.OnRefreshListener {
@@ -27,6 +26,9 @@ class NotesLceViewController : MvpLceViewStateController<SwipeRefreshLayout, Lis
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup): View {
         val view = inflater.inflate(R.layout.notes_view, container, false)
         ButterKnife.bind(this, view)
+
+        initRecyclerView(view.context)
+
         return view
     }
 
@@ -35,8 +37,6 @@ class NotesLceViewController : MvpLceViewStateController<SwipeRefreshLayout, Lis
 
         // set up contentView == SwipeRefreshView
         contentView.setOnRefreshListener(this)
-
-        initRecyclerView(view.context)
     }
 
     override fun loadData(pullToRefresh: Boolean) {

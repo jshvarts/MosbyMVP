@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
-import com.jshvarts.mosbymvp.domain.Note
 
 class NotesAdapter : RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
 

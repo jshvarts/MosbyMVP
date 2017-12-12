@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
-import com.jshvarts.mosbymvp.domain.Note
 import timber.log.Timber
 
 class NoteDetailActivity : AppCompatActivity() {

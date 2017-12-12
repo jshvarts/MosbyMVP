@@ -1,4 +1,4 @@
-package com.jshvarts.mosbymvp.domain
+package com.jshvarts.mosbymvp
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
