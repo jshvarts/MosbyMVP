@@ -90,13 +90,7 @@ class NotesLceViewController : MvpLceViewStateController<SwipeRefreshLayout, Lis
                 .popChangeHandler(FadeChangeHandler()))
     }
 
-    /**
-     * Initializes recyclerViewAdapter (and recyclerView) if it does not exist already
-     */
     private fun initRecyclerView(context: Context) {
-        if (recyclerViewAdapter != null) {
-            return
-        }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerViewAdapter = NotesAdapter()
         recyclerViewAdapter.onItemClick = { onNoteClicked(it)}

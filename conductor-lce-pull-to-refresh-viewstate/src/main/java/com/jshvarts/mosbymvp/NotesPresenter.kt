@@ -16,7 +16,7 @@ class NotesPresenter : MvpBasePresenter<NotesContract.View>(), NotesContract.Pre
                 .subscribe({ ifViewAttached { view ->
                     view.setData(it)
                     view.showContent() }
-                }, { view?.showError(it, pullToRefresh) }))
+                }, { error -> ifViewAttached { view -> view.showError(error, pullToRefresh) } }))
     }
 
     override fun destroy() {
