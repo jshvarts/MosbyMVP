@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/conductor-hello-world" />
             <option value="$PROJECT_DIR$/conductor-hello-world-viewstate" />
+            <option value="$PROJECT_DIR$/conductor-lce-pull-to-refresh-viewstate" />
             <option value="$PROJECT_DIR$/hello-world" />
             <option value="$PROJECT_DIR$/hello-world-viewstate" />
             <option value="$PROJECT_DIR$/lce-pull-to-refresh-viewstate" />

@@ -33,6 +33,8 @@ More details at [ViewState](http://hannesdorfmann.com/mosby/viewstate/)
     * Simple Conductor using Mosby plug-in without handling `ViewState`
 * **Mosby Conductor Hello World with ViewState**
     * Simple Conductor using Mosby plug-in with `ViewState` preserved across configuration changes.
+* **Mosby Conductor LCE pull-to-refresh with ViewState**
+    * Conductor using Mosby plug-in LCE pull-to-refresh with `ViewState` preserved across configuration changes.
 * more examples coming soon...
 
 ## License

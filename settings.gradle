@@ -1,1 +1,6 @@
-include ':hello-world', ':hello-world-viewstate', ':lce-pull-to-refresh-viewstate', ':conductor-hello-world', ':conductor-hello-world-viewstate'
+include ':hello-world',
+        ':hello-world-viewstate',
+        ':lce-pull-to-refresh-viewstate',
+        ':conductor-hello-world',
+        ':conductor-hello-world-viewstate',
+        ':conductor-lce-pull-to-refresh-viewstate'

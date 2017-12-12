@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Conductor LCE Pull-to-Refresh ViewState</string>
+    <string name="error_loading">Error loading notes</string>
+    <string name="error_loading_retry">Error loading notes. Please retry.</string>
+</resources>
