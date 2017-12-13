@@ -33,10 +33,12 @@ class MainActivity : MvpActivity<GreetingContract.View, GreetingContract.Present
     }
 
     override fun showGreeting(greetingText: String) {
+        greetingTextView.visibility = View.VISIBLE
         greetingTextView.text = greetingText
     }
 
     override fun showLoading() {
+        greetingTextView.visibility = View.GONE
         loadingIndicator.visibility = View.VISIBLE
     }
 

@@ -38,6 +38,7 @@ class GreetingViewController : MvpController<GreetingContract.View, GreetingCont
     }
 
     override fun showLoading() {
+        greetingTextView.visibility = View.GONE
         loadingIndicator.visibility = View.VISIBLE
     }
 

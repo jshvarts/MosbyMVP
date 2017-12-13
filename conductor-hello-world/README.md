@@ -10,7 +10,7 @@ For the sake of simplicity, the Use Case is implemented as a Singleton and acces
 
 ## View
 
-The View extends Mosby's abstract `MvpController`. The View does not define any custom `ViewState` to be preserved on device configuration changes such as rotation. 
+Conductor is used to manage Views. Our View `GreetingViewController` extends Mosby's abstract `MvpController`. The View does not define any custom `ViewState` to be preserved on device configuration changes such as rotation. 
 
 Instead of extending `MvpController`, the View could implement Mosby's `MvpConductorDelegateCallback`. 
  

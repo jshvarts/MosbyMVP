@@ -10,7 +10,7 @@ For the sake of simplicity, the Use Case is implemented as a Singleton and acces
 
 ## View
 
-The View extends Mosby's abstract `MvpLceViewStateController`. The View defines basic `ParcelableListLceViewState`. 
+Conductor is used to manage Views. Our View `NotesLceViewController` extends Mosby's abstract `MvpLceViewStateController`. The View defines basic `ParcelableListLceViewState`. 
 
 Instead of extending `MvpLceViewStateController`, the View could implement Mosby's `MvpViewStateConductorDelegateCallback`. 
  
@@ -27,7 +27,7 @@ Alternatively, the Presenter could extend Mosby's `MvpQueuingBasePresenter` to g
 ## LCE
 "LCE" describes Loading-Content-Error flow typical of many Android apps where loading indicator (such as `ProgressBar`) is followed by displaying content or error. 
 
-Mosby can take care of managing these values for you. For this to work out-of-the-box, define View IDs in your layout file as follows:
+Mosby can take care of managing these for you. For this to work out-of-the-box, define View IDs in your layout file as follows:
 * `@+id/loadingView` for loading indicator view
 * `@+id/contentView` for content view
 * `@+id/errorView` for error view

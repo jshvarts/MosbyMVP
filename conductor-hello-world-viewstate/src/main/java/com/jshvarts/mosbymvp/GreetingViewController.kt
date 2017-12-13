@@ -44,11 +44,13 @@ class GreetingViewController : MvpViewStateController<GreetingContract.View, Gre
     }
 
     override fun showGreeting(greetingText: String) {
+        greetingTextView.visibility = View.VISIBLE
         viewState.setData(greetingText)
         greetingTextView.text = greetingText
     }
 
     override fun showLoading() {
+        greetingTextView.visibility = View.GONE
         loadingIndicator.visibility = View.VISIBLE
     }
 
