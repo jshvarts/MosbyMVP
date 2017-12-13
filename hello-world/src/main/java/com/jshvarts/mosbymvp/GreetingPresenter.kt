@@ -15,7 +15,7 @@ class GreetingPresenter : MvpBasePresenter<GreetingContract.View>(), GreetingCon
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { ifViewAttached { view -> view.showLoading() } }
                 .doFinally { ifViewAttached { view -> view.hideLoading() } }
-                .subscribe({ ifViewAttached { view -> view.showGreeting(it) } }, { ifViewAttached { view -> view.hideLoading() } }))
+                .subscribe({ ifViewAttached { view -> view.showGreeting(it) } }, { ifViewAttached { view -> view.showError() } }))
     }
 
     override fun destroy() {
