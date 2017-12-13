@@ -4,9 +4,9 @@
 
 ### Model
 
-The Model is used by the Presenter. Model lives in its own Gradle module: **common** in *domain* and *data* packages. 
+The Model is used by the Presenter. Model lives in its own Gradle module **common** within *domain* and *data* packages.
 
-For the sake of simplicity, they are implemented as Singletons and accessed directly. However, in a production app, the Domain layer components, such as Use Cases or Interactors, would be injected into Presenter and Data layer components such as Repository would be injected into Use Cases/Interactors. 
+For the sake of simplicity, the Use Case is implemented as a Singleton and accessed directly. However, in a production app, the Domain layer components, such as Use Cases or Interactors, would be injected into Presenter and Data layer components such as Repository would be injected into Use Cases/Interactors so they could be easily swapped and tested.
 
 ### View
 
