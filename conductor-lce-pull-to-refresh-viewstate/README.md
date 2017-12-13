@@ -1,20 +1,20 @@
 # Hello World MVP with Mosby
 
-## Model-View-Presenter setup
+Below is the Model-View-Presenter setup:
 
-### Model
+## Model
 
 The Model is used by the Presenter. Model lives in its own Gradle module: **common** in *domain* and *data* packages. 
 
-For the sake of simplicity, they are implemented as Singletons and accessed directly. However, in a production app, the Domain layer components, such as Use Cases or Interactors, would be injected into Presenter and Data layer components such as Repository would be injected into Use Cases/Interactors. 
+For the sake of simplicity, Model code is implemented as Singletons and accessed directly. However, in a production app, the Domain layer components, such as Use Cases or Interactors, would be injected into Presenter and Data layer components such as Repository would be injected into Use Cases/Interactors. 
 
-### View
+## View
 
-In this example, the View is an Activity. It extends Mosby's abstract `MvpActivity` which extends `AppCompatActivity`. The View does not define any custom `ViewState` to be preserved on device configuration changes such as rotation. 
+The View extends Mosby's abstract `MvpLceViewStateController`. The View defines basic `ParcelableListLceViewState`. 
 
-Instead of extending `MvpActivity`, the View could implement Mosby's `MvpDelegateCallback` instead. 
+Instead of extending `MvpLceViewStateController`, the View could implement Mosby's `MvpViewStateConductorDelegateCallback` instead. 
  
-### Presenter
+## Presenter
 
 In this example, the Presenter extends Mosby's `MvpBasePresenter`.
 
@@ -26,4 +26,4 @@ Alternatively, the Presenter could extend Mosby's `MvpQueuingBasePresenter` to g
 
 ## Gradle
 
-Be sure to add `com.hannesdorfmann.mosby3:mvp` dependency.
+Be sure to add dependencies for `com.bluelinelabs:conductor` and `com.hannesdorfmann.mosby3` and `com.hannesdorfmann.mosby3:viewstate-conductor`.

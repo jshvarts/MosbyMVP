@@ -15,15 +15,15 @@ class NotesPresenter : MvpBasePresenter<NotesContract.View>(), NotesContract.Pre
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { it.map { Note(it.id, it.noteText) } }
                 .subscribe({
-                    view?.setData(it)
-                    view?.showContent()
-                }, { view?.showError(it, pullToRefresh) }))
+                    ifViewAttached { view ->
+                        view.setData(it)
+                        view.showContent()
+                    }
+                }, { error -> ifViewAttached { view -> view.showError(error, pullToRefresh) } }))
     }
 
-    override fun detachView(retainInstance: Boolean) {
-        super.detachView(retainInstance)
-        if (!retainInstance) {
-            disposables.clear()
-        }
+    override fun destroy() {
+        super.destroy()
+        disposables.clear()
     }
 }

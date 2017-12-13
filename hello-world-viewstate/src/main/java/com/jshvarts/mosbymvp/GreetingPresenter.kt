@@ -13,15 +13,13 @@ class GreetingPresenter : MvpBasePresenter<GreetingContract.View>(), GreetingCon
         disposables.add(GetGreetingUseCase.getHelloGreeting()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe { view?.showLoading() }
-                .doFinally { view?.hideLoading() }
-                .subscribe({ view?.showGreeting(it) }, { view?.showError() }))
+                .doOnSubscribe { ifViewAttached { view ->  view.showLoading() } }
+                .doFinally { ifViewAttached { view ->  view.hideLoading() } }
+                .subscribe({ ifViewAttached { view -> view.showGreeting(it) } }, { ifViewAttached { view ->  view.showError() } }))
     }
 
-    override fun detachView(retainInstance: Boolean) {
-        super.detachView(retainInstance)
-        if (!retainInstance) {
-            disposables.clear()
-        }
+    override fun destroy() {
+        super.destroy()
+        disposables.clear()
     }
 }
