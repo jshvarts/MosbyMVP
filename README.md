@@ -17,6 +17,8 @@ If there is a library that manages MVP wiring and view state for you so you can 
 More details at [ViewState](http://hannesdorfmann.com/mosby/viewstate/)
 * LCE describes Loading-Content-Error flow typical of many Android apps where loading indicator (such as `ProgressBar`) is followed by displaying content or error. 
 * Delegate Callbacks is a set of interfaces that Mosby uses internally which you are welcome to implement yourself instead of inheriting from base MVP classes. For instance, instead of extending `MvpActivity`, implement `MvpDelegateCallback` or instead of extending `MvpViewStateController` implement `MvpViewStateConductorDelegateCallback` and so forth.
+* `MvpNullObjectBasePresenter` is a special kind of Presenter which implements the Null Object Pattern. It makes it unnecessary for you to check if the View is attached prior to calling methods on it. Any calls on the View that is not attached will do nothing (no op); no NullPointerExceptions will be thrown.
+* `MvpQueuingBasePresenter` is a special kind of Presenter which lets you queue the calls on the View and replay them in same order once the View becomes available.
 
 ## Modules in this repo
 
