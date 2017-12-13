@@ -12,7 +12,7 @@ For the sake of simplicity, they are implemented as Singletons and accessed dire
 
 In this example, the View is an Activity. It extends Mosby's abstract `MvpActivity` which extends `AppCompatActivity`. The View does not define any custom `ViewState` to be preserved on device configuration changes such as rotation. 
 
-Instead of extending `MvpActivity`, the View could implement Mosby's `MvpDelegateCallback` instead. 
+Instead of extending `MvpActivity`, the View could implement Mosby's `MvpDelegateCallback`. 
  
 ### Presenter
 

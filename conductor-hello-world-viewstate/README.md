@@ -12,7 +12,7 @@ For the sake of simplicity, Model code is implemented as Singletons and accessed
 
 The View extends Mosby's abstract `MvpViewStateController`. The View defines custom `ViewState` to be preserved on device configuration changes such as rotation. 
 
-Instead of extending `MvpViewStateController`, the View could implement Mosby's `MvpViewStateConductorDelegateCallback` instead. 
+Instead of extending `MvpViewStateController`, the View could implement Mosby's `MvpViewStateConductorDelegateCallback`. 
  
 ## Presenter
 
