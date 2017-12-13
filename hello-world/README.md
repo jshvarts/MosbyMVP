@@ -1,4 +1,4 @@
-# Hello World MVP with Mosby
+# Hello World MVP using Mosby
 
 ## Model-View-Presenter setup
 

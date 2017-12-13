@@ -1,4 +1,4 @@
-# Hello World MVP with Mosby
+# Hello World MVP using Mosby and Conductor
 
 Below is the Model-View-Presenter setup:
 

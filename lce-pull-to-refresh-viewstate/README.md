@@ -1,4 +1,4 @@
-# Hello World MVP with Mosby
+# LCE Pull-to-Refresh MVP (with ViewState) using Mosby
 
 Below is the Model-View-Presenter setup:
 

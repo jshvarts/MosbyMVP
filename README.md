@@ -32,9 +32,9 @@ More details at [ViewState](http://hannesdorfmann.com/mosby/viewstate/)
     * Todo-style notes screen using RecyclerView with `ViewState` preserved across configuration changes.
 * **Mosby Conductor Hello World**
     * Simple Conductor using Mosby plugin without handling `ViewState`
-* **Mosby Conductor Hello World with ViewState**
+* **Mosby Conductor Hello World ViewState**
     * Simple Conductor using Mosby plugin with `ViewState` preserved across configuration changes.
-* **Mosby Conductor LCE pull-to-refresh with ViewState**
+* **Mosby Conductor LCE pull-to-refresh ViewState**
     * Conductor using Mosby plugin LCE pull-to-refresh with `ViewState` preserved across configuration changes.
 
 ## License
