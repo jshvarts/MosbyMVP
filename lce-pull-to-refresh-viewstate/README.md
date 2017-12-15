@@ -14,6 +14,8 @@ In this example, the View is an Activity. It extends Mosby's abstract `MvpLceVie
 
 Instead of extending `MvpLceViewStateActivity`, the View could implement Mosby's `MvpViewStateDelegateCallback` instead. 
  
+Note that we animate the RecyclerView only on initial load and refresh action but not during `ViewState` restoration. We do it by calling `isRestoringViewState` on the View (Activity).
+
 ## Presenter
 
 In this example, the Presenter extends Mosby's `MvpBasePresenter`.

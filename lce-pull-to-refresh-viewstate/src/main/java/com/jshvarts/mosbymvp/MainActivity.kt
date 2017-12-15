@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.animation.AnimationUtils
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.hannesdorfmann.mosby3.mvp.viewstate.lce.LceViewState
 import com.hannesdorfmann.mosby3.mvp.viewstate.lce.MvpLceViewStateActivity
 import com.hannesdorfmann.mosby3.mvp.viewstate.lce.data.ParcelableListLceViewState
+
 
 class MainActivity : MvpLceViewStateActivity<SwipeRefreshLayout, List<Note>, NotesContract.View, NotesPresenter>(),
         NotesContract.View, SwipeRefreshLayout.OnRefreshListener {
@@ -53,6 +55,11 @@ class MainActivity : MvpLceViewStateActivity<SwipeRefreshLayout, List<Note>, Not
 
     override fun setData(data: List<Note>) {
         recyclerViewAdapter.updateNotes(data)
+
+        // enable RecyclerView animation if ViewState is not being restored
+        if(!isRestoringViewState) {
+            runLayoutAnimation()
+        }
     }
 
     override fun onRefresh() = loadData(true)
@@ -84,5 +91,12 @@ class MainActivity : MvpLceViewStateActivity<SwipeRefreshLayout, List<Note>, Not
         recyclerViewAdapter = NotesAdapter()
         recyclerViewAdapter.onItemClick = { onNoteClicked(it)}
         recyclerView.adapter = recyclerViewAdapter
+    }
+
+    private fun runLayoutAnimation() {
+        AnimationUtils.loadLayoutAnimation(recyclerView.context, R.anim.layout_animation_fall_down).apply {
+            recyclerView.layoutAnimation = this
+        }
+        recyclerView.scheduleLayoutAnimation()
     }
 }
