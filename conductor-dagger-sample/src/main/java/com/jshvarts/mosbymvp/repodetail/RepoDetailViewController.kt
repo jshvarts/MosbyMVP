@@ -52,7 +52,6 @@ class RepoDetailViewController : BaseViewController<RepoDetailContract.View, Rep
 
     override fun onLoadRepoDetailSuccess(repoDetal: GithubRepo) {
         viewState.setData(repoDetal)
-        Timber.d("repo detail $repoDetal")
         repoNameTextView.visibility = View.VISIBLE
         repoNameTextView.text = "${repoDetal.name} has ${repoDetal.stars} stars"
     }

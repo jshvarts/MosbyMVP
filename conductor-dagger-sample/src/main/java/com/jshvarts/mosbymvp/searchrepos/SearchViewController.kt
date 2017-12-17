@@ -90,7 +90,6 @@ class SearchViewController : BaseViewController<SearchContract.View, SearchContr
     override fun createPresenter(): SearchContract.Presenter = injectedPresenter
 
     override fun onRepoClicked(repo: GithubRepo) {
-        Timber.d("onRepoClicked " + repo)
         val repoDetailView = RepoDetailViewController().apply {
             args.putString(RepoDetailViewController.REPO_NAME, repo.name)
             args.putString(RepoDetailViewController.LOGIN, repo.owner.login)
