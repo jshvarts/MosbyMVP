@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Conductor Dagger Sample</string>
+    <string name="username_hint">Github username</string>
+    <string name="search_repos_title">Search Repos</string>
+    <string name="repo_detail_title">Repo Detail</string>
+    <string name="error_loading_repos">Error loading Repos</string>
+    <string name="error_loading_repo_detail">Error loading repo detail</string>
+</resources>

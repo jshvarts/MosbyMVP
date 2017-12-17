@@ -49,8 +49,8 @@ class NotesLceViewController : MvpLceViewStateController<SwipeRefreshLayout, Lis
         recyclerViewAdapter.updateNotes(data)
     }
 
-    override fun getData(): List<Note>? {
-        return recyclerViewAdapter?.getNotesList()
+    override fun getData(): List<Note> {
+        return recyclerViewAdapter.getNotesList()
     }
 
     override fun showContent() {

@@ -45,8 +45,8 @@ class MainActivity : MvpLceViewStateActivity<SwipeRefreshLayout, List<Note>, Not
     /**
      * Creates the view state object
      */
-    override fun getData(): List<Note>? {
-        return recyclerViewAdapter?.getNotesList()
+    override fun getData(): List<Note> {
+        return recyclerViewAdapter.getNotesList()
     }
 
     override fun loadData(pullToRefresh: Boolean) {

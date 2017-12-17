@@ -4,4 +4,5 @@ include ':common',
         ':lce-pull-to-refresh-viewstate',
         ':conductor-hello-world',
         ':conductor-hello-world-viewstate',
-        ':conductor-lce-pull-to-refresh-viewstate'
+        ':conductor-lce-pull-to-refresh-viewstate',
+        ':conductor-dagger-sample'
