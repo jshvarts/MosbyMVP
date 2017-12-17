@@ -1,6 +1,6 @@
-# Sample MVP Dagger app (with ViewState) using Mosby and Conductor
+# Dagger MVP app using Mosby and Conductor
 
-This sample app has 2 screens and packages are organized by feature:
+This Clean Architecture sample app has 2 screens. Packages are organized by feature:
 1) Looking up a list of Github repositories for a given username
 2) Getting more detail about a Github repository
 
@@ -14,7 +14,7 @@ Our Model is in the **domain** package.
 
 `GithubDataStore` uses `GithubService` to populate `GithubRepo` POJOs.
 
-`GithubDataStore` is injected into Use Cases which are in turn injected into Presenters via Dagger 2.
+`RetrofitGithubDataStore` is injected into Presenters via `GithubDataStore` from Domain layer interface. Presenters interact with Data layer only through Domain layer so the Data layer implementations can be easily swapped and to improve testability.
 
 ## View
 

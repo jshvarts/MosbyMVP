@@ -6,7 +6,7 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface GithubService {
+interface RetrofitGithubService {
     @GET("users/{login}/repos")
     fun repos(@Path("login") login: String): Maybe<List<GithubRepo>>
 

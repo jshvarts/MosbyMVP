@@ -1,20 +1,20 @@
 # Hello World MVP using Mosby
 
-## Model-View-Presenter setup
+Below is the Model-View-Presenter setup:
 
-### Model
+## Model
 
 The Model is used by the Presenter. Model lives in its own Gradle module **common** within *domain* and *data* packages.
 
 For the sake of simplicity, the Use Case is implemented as a Singleton and accessed directly. However, in a production app, the Domain layer components, such as Use Cases or Interactors, would be injected into Presenter and Data layer components such as Repository would be injected into Use Cases/Interactors so they could be easily swapped and tested.
 
-### View
+## View
 
 In this example, the View is an Activity. It extends Mosby's abstract `MvpActivity` which extends `AppCompatActivity`. The View does not define any custom `ViewState` to be preserved on device configuration changes such as rotation. 
 
 Instead of extending `MvpActivity`, the View could implement Mosby's `MvpDelegateCallback`. 
  
-### Presenter
+## Presenter
 
 In this example, the Presenter extends Mosby's `MvpBasePresenter`.
 

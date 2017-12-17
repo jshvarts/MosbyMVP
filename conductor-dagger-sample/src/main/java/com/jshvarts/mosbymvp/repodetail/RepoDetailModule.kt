@@ -1,6 +1,6 @@
 package com.jshvarts.mosbymvp.repodetail
 
-import com.jshvarts.mosbymvp.data.GithubDataStore
+import com.jshvarts.mosbymvp.data.RetrofitGithubDataStore
 import com.jshvarts.mosbymvp.di.PerScreen
 import com.jshvarts.mosbymvp.domain.RepoDetailUseCase
 import dagger.Module
@@ -10,7 +10,7 @@ import dagger.Provides
 class RepoDetailModule {
     @PerScreen
     @Provides
-    fun provideRepoDetailUseCase(githubDataStore: GithubDataStore) = RepoDetailUseCase(githubDataStore)
+    fun provideRepoDetailUseCase(githubDataStore: RetrofitGithubDataStore) = RepoDetailUseCase(githubDataStore)
 
     @PerScreen
     @Provides
