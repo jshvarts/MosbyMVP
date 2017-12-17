@@ -1,12 +1,11 @@
 package com.jshvarts.mosbymvp.domain
 
+import com.jshvarts.mosbymvp.data.GithubDataStore
 import io.reactivex.Single
-import java.util.concurrent.TimeUnit
 
-class RepoDetailUseCase {
+class RepoDetailUseCase(private val githubDataStore: GithubDataStore) {
 
-    fun loadRepoDetail(repoName: String): Single<GithubRepo> {
-        return Single.just(GithubRepo(repoName))
-                .delay(2, TimeUnit.SECONDS)
+    fun loadRepoDetail(login: String, repoName: String): Single<GithubRepo> {
+        return githubDataStore.loadRepo(login, repoName)
     }
 }

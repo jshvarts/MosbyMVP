@@ -1,6 +1,7 @@
 package com.jshvarts.mosbymvp.di
 
 import android.app.Application
+import com.jshvarts.mosbymvp.data.GithubDataStore
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -14,4 +15,6 @@ interface AppComponent {
         fun application(application: Application): Builder
         fun build(): AppComponent
     }
+
+    fun exposeGithubDataStore(): GithubDataStore
 }

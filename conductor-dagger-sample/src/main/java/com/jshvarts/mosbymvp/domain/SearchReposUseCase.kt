@@ -1,12 +1,11 @@
 package com.jshvarts.mosbymvp.domain
 
+import com.jshvarts.mosbymvp.data.GithubDataStore
 import io.reactivex.Maybe
-import java.util.concurrent.TimeUnit
 
-class SearchReposUseCase {
+class SearchReposUseCase(private val githubDataStore: GithubDataStore) {
 
-    fun search(username: String): Maybe<List<GithubRepo>> {
-        return Maybe.just(listOf(GithubRepo("repo1"), GithubRepo("repo2"), GithubRepo("repo3")))
-                .delay(2, TimeUnit.SECONDS)
+    fun search(owner: String): Maybe<List<GithubRepo>> {
+        return githubDataStore.loadRepos(owner)
     }
 }

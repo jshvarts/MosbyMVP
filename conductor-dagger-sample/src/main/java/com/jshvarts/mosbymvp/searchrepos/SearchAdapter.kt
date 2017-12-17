@@ -14,15 +14,15 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
     var onItemClick: (GithubRepo) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val noteText = LayoutInflater.from(parent.context)
+        val repoName = LayoutInflater.from(parent.context)
                 .inflate(R.layout.repo_list_item, parent, false) as TextView
-        val viewHolder = ViewHolder(noteText)
-        noteText.setOnClickListener { onItemClick(repos[viewHolder.adapterPosition]) }
+        val viewHolder = ViewHolder(repoName)
+        repoName.setOnClickListener { onItemClick(repos[viewHolder.adapterPosition]) }
         return viewHolder
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        repos[position].apply { holder.repoName.text = this.repoName }
+        repos[position].apply { holder.repoName.text = this.name }
     }
 
     override fun getItemCount() = repos.size

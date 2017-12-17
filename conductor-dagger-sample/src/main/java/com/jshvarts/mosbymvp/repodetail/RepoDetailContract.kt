@@ -13,6 +13,6 @@ interface RepoDetailContract {
     }
 
     interface Presenter : MvpPresenter<View> {
-        fun loadRepo(repoName: String)
+        fun loadRepo(login: String, repoName: String)
     }
 }

@@ -7,6 +7,7 @@ ext {
     conductorVersion = "2.1.4"
     mosbyVersion = "3.1.0"
     daggerVersion = "2.13"
+    retrofitVersion = "2.3.0"
 }
 
 android {
@@ -59,6 +60,11 @@ dependencies {
     // ButterKnife
     implementation "com.jakewharton:butterknife:$butterKnifeVersion"
     kapt "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
 
     testImplementation 'junit:junit:4.12'
 }

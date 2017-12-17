@@ -14,6 +14,7 @@ import javax.inject.Inject
 class RepoDetailViewController : BaseViewController<RepoDetailContract.View, RepoDetailContract.Presenter, RepoViewState>(), RepoDetailContract.View {
 
     companion object {
+        val LOGIN: String = "login"
         val REPO_NAME: String = "repoName"
     }
 
@@ -35,7 +36,7 @@ class RepoDetailViewController : BaseViewController<RepoDetailContract.View, Rep
     }
 
     override fun onNewViewStateInstance() {
-        presenter.loadRepo(args.getString(REPO_NAME))
+        presenter.loadRepo(args.getString(LOGIN), args.getString(REPO_NAME))
     }
 
     override fun showLoading() {
@@ -51,8 +52,9 @@ class RepoDetailViewController : BaseViewController<RepoDetailContract.View, Rep
 
     override fun onLoadRepoDetailSuccess(repoDetal: GithubRepo) {
         viewState.setData(repoDetal)
+        Timber.d("repo detail $repoDetal")
         repoNameTextView.visibility = View.VISIBLE
-        repoNameTextView.text = repoDetal.repoName
+        repoNameTextView.text = "${repoDetal.name} has ${repoDetal.stars} stars"
     }
 
     override fun onLoadRepoError(throwable: Throwable) {

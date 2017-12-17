@@ -68,6 +68,7 @@ class SearchViewController : BaseViewController<SearchContract.View, SearchContr
             this.view?.hideKeyboard()
             presenter.searchRepos(usernameEditText.text.toString())
             usernameEditText.isCursorVisible = false
+            recyclerViewAdapter.updateRepos(emptyList())
             return true
         }
         return false
@@ -91,7 +92,8 @@ class SearchViewController : BaseViewController<SearchContract.View, SearchContr
     override fun onRepoClicked(repo: GithubRepo) {
         Timber.d("onRepoClicked " + repo)
         val repoDetailView = RepoDetailViewController().apply {
-            args.putString(RepoDetailViewController.REPO_NAME, repo.repoName)
+            args.putString(RepoDetailViewController.REPO_NAME, repo.name)
+            args.putString(RepoDetailViewController.LOGIN, repo.owner.login)
         }
         router.pushController(RouterTransaction.with(repoDetailView)
                 .pushChangeHandler(FadeChangeHandler())
