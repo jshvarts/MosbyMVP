@@ -25,19 +25,19 @@ More details at [ViewState](http://hannesdorfmann.com/mosby/viewstate/)
 *All examples implement MVP pattern*
 
 * **Hello World**
-    * Simple Hello World without handling `ViewState`. [[link]](https://github.com/jshvarts/MosbyMVP/tree/master/hello-world)
-* **Hello World ViewState**
-    * Simple Hello World with `ViewState` preserved across configuration changes. [[link]](https://github.com/jshvarts/MosbyMVP/tree/master/hello-world-viewstate)
-* **LCE pull-to-refresh ViewState**
+    * Simple Hello World sample. [[link]](https://github.com/jshvarts/MosbyMVP/tree/master/hello-world)
+* **Hello World with ViewState**
+    * Hello World with `ViewState` preserved across configuration changes. [[link]](https://github.com/jshvarts/MosbyMVP/tree/master/hello-world-viewstate)
+* **LCE pull-to-refresh with ViewState**
     * Todo-style notes screen using RecyclerView with `ViewState` preserved across configuration changes. [[link]](https://github.com/jshvarts/MosbyMVP/tree/master/lce-pull-to-refresh-viewstate)
 * **Mosby Conductor Hello World**
-    * Simple Conductor using Mosby plugin without handling `ViewState`. [[link]](https://github.com/jshvarts/MosbyMVP/tree/master/conductor-hello-world) 
-* **Mosby Conductor Hello World ViewState**
-    * Simple Conductor using Mosby plugin with `ViewState` preserved across configuration changes. [[link]](https://github.com/jshvarts/MosbyMVP/tree/master/conductor-hello-world-viewstate)
-* **Mosby Conductor LCE pull-to-refresh ViewState**
-    * Conductor using Mosby plugin LCE pull-to-refresh with `ViewState` preserved across configuration changes. [[link]](https://github.com/jshvarts/MosbyMVP/tree/master/conductor-lce-pull-to-refresh-viewstate)
+    * Mosby with Conductor plugin sample. [[link]](https://github.com/jshvarts/MosbyMVP/tree/master/conductor-hello-world) 
+* **Mosby Conductor Hello World with ViewState**
+    * Mosby with Conductor plugin with `ViewState` preserved across configuration changes. [[link]](https://github.com/jshvarts/MosbyMVP/tree/master/conductor-hello-world-viewstate)
+* **Mosby Conductor LCE pull-to-refresh with ViewState**
+    * Mosby with Conductor plugin LCE pull-to-refresh with `ViewState` preserved across configuration changes. [[link]](https://github.com/jshvarts/MosbyMVP/tree/master/conductor-lce-pull-to-refresh-viewstate)
 * **Mosby Conductor Dagger Sample**
-    * Conductor using Mosby plugin used in a small Clean Architecture app with [Dagger](https://google.github.io/dagger/) and [Retrofit](http://square.github.io/retrofit/). Uses custom Dagger scopes. [[link]](https://github.com/jshvarts/MosbyMVP/tree/master/conductor-dagger-sample)
+    * Mosby with Conductor plugin used in a small Clean Architecture sample app with [Dagger](https://google.github.io/dagger/) and [Retrofit](http://square.github.io/retrofit/). Uses custom Dagger scopes. [[link]](https://github.com/jshvarts/MosbyMVP/tree/master/conductor-dagger-sample)
 
 ## License
 
