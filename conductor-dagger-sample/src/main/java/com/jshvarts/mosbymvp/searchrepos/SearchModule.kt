@@ -11,8 +11,4 @@ class SearchModule {
     @PerScreen
     @Provides
     fun provideSearchUseCase(githubDataStore: RetrofitGithubDataStore) = SearchReposUseCase(githubDataStore)
-
-    @PerScreen
-    @Provides
-    fun providePresenter(searchReposUseCase: SearchReposUseCase) = SearchPresenter(searchReposUseCase)
 }

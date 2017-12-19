@@ -11,8 +11,4 @@ class RepoDetailModule {
     @PerScreen
     @Provides
     fun provideRepoDetailUseCase(githubDataStore: RetrofitGithubDataStore) = RepoDetailUseCase(githubDataStore)
-
-    @PerScreen
-    @Provides
-    fun providePresenter(repoDetailUseCase: RepoDetailUseCase) = RepoDetailPresenter(repoDetailUseCase)
 }
