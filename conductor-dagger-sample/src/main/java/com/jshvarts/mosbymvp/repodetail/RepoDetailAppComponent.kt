@@ -8,5 +8,5 @@ import dagger.Component
 @Component(modules = arrayOf(RepoDetailModule::class),
         dependencies = arrayOf(AppComponent::class))
 interface RepoDetailAppComponent {
-    fun inject(view: RepoDetailViewController)
+    fun presenter(): RepoDetailPresenter
 }

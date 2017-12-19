@@ -9,7 +9,6 @@ import com.jshvarts.mosbymvp.R
 import com.jshvarts.mosbymvp.domain.GithubRepo
 import com.jshvarts.mosbymvp.mvp.BaseViewController
 import timber.log.Timber
-import javax.inject.Inject
 
 class RepoDetailViewController : BaseViewController<RepoDetailContract.View, RepoDetailContract.Presenter, RepoViewState>(), RepoDetailContract.View {
 
@@ -18,22 +17,11 @@ class RepoDetailViewController : BaseViewController<RepoDetailContract.View, Rep
         val REPO_NAME: String = "repoName"
     }
 
-    @Inject
-    lateinit var injectedPresenter: RepoDetailPresenter
-
     @BindView(R.id.repo_name_textview)
     lateinit var repoNameTextView: TextView
 
     @BindView(R.id.loading_indicator)
     lateinit var loadingIndicator: ProgressBar
-
-    override fun injectDependencies() {
-        DaggerRepoDetailAppComponent.builder()
-                .appComponent(GithubApp.component)
-                .repoDetailModule(RepoDetailModule())
-                .build()
-                .inject(this)
-    }
 
     override fun onNewViewStateInstance() {
         presenter.loadRepo(args.getString(LOGIN), args.getString(REPO_NAME))
@@ -61,9 +49,13 @@ class RepoDetailViewController : BaseViewController<RepoDetailContract.View, Rep
         showMessage(R.string.error_loading_repo_detail)
     }
 
-    override fun createViewState(): RepoViewState = RepoViewState()
+    override fun createViewState() = RepoViewState()
 
-    override fun createPresenter(): RepoDetailContract.Presenter = injectedPresenter
+    override fun createPresenter() = DaggerRepoDetailAppComponent.builder()
+            .appComponent(GithubApp.component)
+            .repoDetailModule(RepoDetailModule())
+            .build()
+            .presenter()
 
     override fun getLayoutId() = R.layout.repo_detail
 

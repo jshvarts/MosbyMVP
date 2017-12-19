@@ -24,14 +24,6 @@ abstract class BaseViewController<V : MvpView, P : MvpPresenter<V>, VS : ViewSta
         return view
     }
 
-    // Inject dependencies once per life of Controller
-    val inject by lazy { injectDependencies() }
-
-    override fun onContextAvailable(context: Context) {
-        super.onContextAvailable(context)
-        inject
-    }
-
     abstract override fun createViewState(): VS
 
     abstract override fun createPresenter(): P
@@ -49,8 +41,6 @@ abstract class BaseViewController<V : MvpView, P : MvpPresenter<V>, VS : ViewSta
 
     @StringRes
     protected abstract fun getToolbarTitleId(): Int
-
-    protected abstract fun injectDependencies()
 
     private fun setToolbarTitle() {
         // if the Activity happens to be non-AppCompatActivity or it does not have ActionBar, simply do not set the title

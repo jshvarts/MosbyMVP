@@ -8,5 +8,5 @@ import dagger.Component
 @Component(modules = arrayOf(SearchModule::class),
         dependencies = arrayOf(AppComponent::class))
 interface SearchAppComponent {
-    fun inject(view: SearchViewController)
+    fun presenter(): SearchPresenter
 }

@@ -16,5 +16,5 @@ interface AppComponent {
         fun build(): AppComponent
     }
 
-    fun exposeGithubDataStore(): RetrofitGithubDataStore
+    fun githubDataStore(): RetrofitGithubDataStore
 }

@@ -19,12 +19,8 @@ import com.jshvarts.mosbymvp.domain.GithubRepo
 import com.jshvarts.mosbymvp.mvp.BaseViewController
 import com.jshvarts.mosbymvp.repodetail.RepoDetailViewController
 import timber.log.Timber
-import javax.inject.Inject
 
 class SearchViewController : BaseViewController<SearchContract.View, SearchContract.Presenter, SearchViewState>(), SearchContract.View {
-
-    @Inject
-    lateinit var injectedPresenter: SearchPresenter
 
     @BindView(R.id.username_edit_text)
     lateinit var usernameEditText: TextInputEditText
@@ -41,14 +37,6 @@ class SearchViewController : BaseViewController<SearchContract.View, SearchContr
         val view: View = super.onCreateView(inflater, container)
         initRecyclerView(view.context)
         return view
-    }
-
-    override fun injectDependencies() {
-        DaggerSearchAppComponent.builder()
-                .appComponent(GithubApp.component)
-                .searchModule(SearchModule())
-                .build()
-                .inject(this)
     }
 
     override fun showLoading() {
@@ -85,9 +73,13 @@ class SearchViewController : BaseViewController<SearchContract.View, SearchContr
         showMessage(R.string.error_loading_repos)
     }
 
-    override fun createViewState(): SearchViewState = SearchViewState()
+    override fun createViewState() = SearchViewState()
 
-    override fun createPresenter(): SearchContract.Presenter = injectedPresenter
+    override fun createPresenter() = DaggerSearchAppComponent.builder()
+            .appComponent(GithubApp.component)
+            .searchModule(SearchModule())
+            .build()
+            .presenter()
 
     override fun onRepoClicked(repo: GithubRepo) {
         val repoDetailView = RepoDetailViewController().apply {
