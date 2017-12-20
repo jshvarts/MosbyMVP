@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/jshvarts/MosbyMVP.svg?branch=master)](https://travis-ci.org/jshvarts/MosbyMVP)
 
+My Medium article to accompany this repo is here: [Get your MVP right with Mosby](https://proandroiddev.com/get-your-mvp-right-with-mosby-1928eaf9daec)
+
 This repo explores [Mosby](https://github.com/sockeqwe/mosby/) and [Mosby Conductor plugin](https://github.com/sockeqwe/mosby-conductor/) implementing MVP pattern.
 
 Both Mosby and Conductor have excellent documentation on GitHub and at [Hannes Dorfmann's blog](http://hannesdorfmann.com/mosby/).
