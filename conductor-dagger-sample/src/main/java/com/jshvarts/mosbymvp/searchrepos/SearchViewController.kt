@@ -75,7 +75,7 @@ class SearchViewController : BaseViewController<SearchContract.View, SearchContr
 
     override fun createViewState() = SearchViewState()
 
-    override fun createPresenter() = DaggerSearchAppComponent.builder()
+    override fun createPresenter() = DaggerSearchComponent.builder()
             .appComponent(GithubApp.component)
             .searchModule(SearchModule())
             .build()

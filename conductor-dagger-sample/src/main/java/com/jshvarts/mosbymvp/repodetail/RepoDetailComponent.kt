@@ -7,6 +7,6 @@ import dagger.Component
 @PerScreen
 @Component(modules = arrayOf(RepoDetailModule::class),
         dependencies = arrayOf(AppComponent::class))
-interface RepoDetailAppComponent {
+interface RepoDetailComponent {
     fun presenter(): RepoDetailPresenter
 }

@@ -7,6 +7,6 @@ import dagger.Component
 @PerScreen
 @Component(modules = arrayOf(SearchModule::class),
         dependencies = arrayOf(AppComponent::class))
-interface SearchAppComponent {
+interface SearchComponent {
     fun presenter(): SearchPresenter
 }

@@ -51,7 +51,7 @@ class RepoDetailViewController : BaseViewController<RepoDetailContract.View, Rep
 
     override fun createViewState() = RepoViewState()
 
-    override fun createPresenter() = DaggerRepoDetailAppComponent.builder()
+    override fun createPresenter() = DaggerRepoDetailComponent.builder()
             .appComponent(GithubApp.component)
             .repoDetailModule(RepoDetailModule())
             .build()
