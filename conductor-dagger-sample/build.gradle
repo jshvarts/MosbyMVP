@@ -8,6 +8,7 @@ ext {
     mosbyVersion = "3.1.0"
     daggerVersion = "2.13"
     retrofitVersion = "2.3.0"
+    okHttpVersion = "3.9.1"
 }
 
 android {
@@ -64,7 +65,11 @@ dependencies {
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+
+    // OkHttp
+    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
 
     testImplementation 'junit:junit:4.12'
 }
