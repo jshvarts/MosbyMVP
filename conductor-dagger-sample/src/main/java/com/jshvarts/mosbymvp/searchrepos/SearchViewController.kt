@@ -73,6 +73,10 @@ class SearchViewController : BaseViewController<SearchContract.View, SearchContr
         showMessage(R.string.error_loading_repos)
     }
 
+    override fun onSearchEmptyResult() {
+        showMessage(R.string.search_results_empty)
+    }
+
     override fun createViewState() = SearchViewState()
 
     override fun createPresenter() = DaggerSearchComponent.builder()
@@ -97,6 +101,7 @@ class SearchViewController : BaseViewController<SearchContract.View, SearchContr
 
     private fun initRecyclerView(context: Context) {
         recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.setHasFixedSize(true)
         recyclerViewAdapter = SearchAdapter()
         recyclerViewAdapter.onItemClick = { onRepoClicked(it)}
         recyclerView.adapter = recyclerViewAdapter

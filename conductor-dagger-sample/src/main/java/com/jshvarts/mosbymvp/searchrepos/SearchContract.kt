@@ -8,6 +8,7 @@ interface SearchContract {
     interface View : MvpView {
         fun onSearchAction(code: Int): Boolean
         fun onSearchSuccess(repos: List<GithubRepo>)
+        fun onSearchEmptyResult()
         fun onSearchError(throwable: Throwable)
         fun onRepoClicked(repo: GithubRepo)
         fun showLoading()

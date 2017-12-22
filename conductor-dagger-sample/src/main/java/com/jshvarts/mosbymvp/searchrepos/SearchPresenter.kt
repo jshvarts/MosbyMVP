@@ -1,6 +1,7 @@
 package com.jshvarts.mosbymvp.searchrepos
 
 import com.jshvarts.mosbymvp.di.PerScreen
+import com.jshvarts.mosbymvp.domain.GithubRepo
 import com.jshvarts.mosbymvp.domain.SearchReposUseCase
 import com.jshvarts.mosbymvp.mvp.BasePresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -15,6 +16,14 @@ class SearchPresenter @Inject constructor(private val searchReposUseCase: Search
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { ifViewAttached { view -> view.showLoading() } }
             .doFinally { ifViewAttached { view -> view.hideLoading() } }
-            .subscribe({ ifViewAttached { view -> view.onSearchSuccess(it) } }, { ifViewAttached { view -> view.onSearchError(it) } }))
+            .subscribe(this::onSearchResult, { ifViewAttached { view -> view.onSearchError(it) } }))
+    }
+
+    private fun onSearchResult(repos: List<GithubRepo>) {
+        if (repos.isEmpty()) {
+            ifViewAttached { view -> view.onSearchEmptyResult() }
+        } else {
+            ifViewAttached { view -> view.onSearchSuccess(repos) }
+        }
     }
 }
