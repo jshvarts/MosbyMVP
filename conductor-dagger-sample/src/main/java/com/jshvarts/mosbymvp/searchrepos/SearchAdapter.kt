@@ -7,17 +7,15 @@ import android.widget.TextView
 import com.jshvarts.mosbymvp.R
 import com.jshvarts.mosbymvp.domain.GithubRepo
 
-class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
+class SearchAdapter(private val onClick: (GithubRepo) -> Unit) : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
-    private val repos = mutableListOf<GithubRepo>()
-
-    var onItemClick: (GithubRepo) -> Unit = {}
+    private var repos = emptyList<GithubRepo>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val repoName = LayoutInflater.from(parent.context)
                 .inflate(R.layout.repo_list_item, parent, false) as TextView
         val viewHolder = ViewHolder(repoName)
-        repoName.setOnClickListener { onItemClick(repos[viewHolder.adapterPosition]) }
+        repoName.setOnClickListener { onClick(repos[viewHolder.adapterPosition]) }
         return viewHolder
     }
 
@@ -27,9 +25,8 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
     override fun getItemCount() = repos.size
 
-    fun updateRepos(notes: List<GithubRepo>) {
-        this.repos.clear()
-        this.repos.addAll(notes)
+    fun updateRepos(repos: List<GithubRepo>) {
+        this.repos = repos
         notifyDataSetChanged()
     }
 

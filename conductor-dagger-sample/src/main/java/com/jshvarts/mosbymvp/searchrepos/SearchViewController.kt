@@ -1,6 +1,5 @@
 package com.jshvarts.mosbymvp.searchrepos
 
-import android.content.Context
 import android.support.design.widget.TextInputEditText
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -18,6 +17,7 @@ import com.jshvarts.mosbymvp.R
 import com.jshvarts.mosbymvp.domain.GithubRepo
 import com.jshvarts.mosbymvp.mvp.BaseViewController
 import com.jshvarts.mosbymvp.repodetail.RepoDetailViewController
+import com.jshvarts.mosbymvp.viewext.initRecyclerView
 import timber.log.Timber
 
 class SearchViewController : BaseViewController<SearchContract.View, SearchContract.Presenter, SearchViewState>(), SearchContract.View {
@@ -31,11 +31,13 @@ class SearchViewController : BaseViewController<SearchContract.View, SearchContr
     @BindView(R.id.recycler_view)
     lateinit var recyclerView: RecyclerView
 
-    private lateinit var recyclerViewAdapter: SearchAdapter
+    private val onClick: (GithubRepo) -> Unit = this::onRepoClicked
+
+    private val recyclerViewAdapter = SearchAdapter(onClick)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup): View {
         val view: View = super.onCreateView(inflater, container)
-        initRecyclerView(view.context)
+        recyclerView.initRecyclerView(LinearLayoutManager(view.context), recyclerViewAdapter)
         return view
     }
 
@@ -98,12 +100,4 @@ class SearchViewController : BaseViewController<SearchContract.View, SearchContr
     override fun getLayoutId() = R.layout.search_repos
 
     override fun getToolbarTitleId() = R.string.search_repos_title
-
-    private fun initRecyclerView(context: Context) {
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.setHasFixedSize(true)
-        recyclerViewAdapter = SearchAdapter()
-        recyclerViewAdapter.onItemClick = { onRepoClicked(it)}
-        recyclerView.adapter = recyclerViewAdapter
-    }
 }
