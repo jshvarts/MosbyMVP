@@ -22,12 +22,8 @@ class SearchViewState : RestorableViewState<SearchContract.View> {
     }
 
     override fun restoreInstanceState(bundle: Bundle?): RestorableViewState<SearchContract.View>? {
-        if (bundle == null) {
-            return null
-        }
-
-        data = bundle.getParcelableArrayList(KEY_DATA)
-        return this
+        bundle?.run { data = getParcelableArrayList(KEY_DATA) }
+        return if (bundle != null) this else null
     }
 
     fun setData(data: ArrayList<GithubRepo>) {
