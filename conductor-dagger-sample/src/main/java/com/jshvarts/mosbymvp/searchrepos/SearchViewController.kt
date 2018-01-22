@@ -58,7 +58,6 @@ class SearchViewController : BaseViewController<SearchContract.View, SearchContr
             this.view?.hideKeyboard()
             presenter.searchRepos(usernameEditText.text.toString())
             usernameEditText.isCursorVisible = false
-            recyclerViewAdapter.updateRepos(emptyList())
             return true
         }
         return false
@@ -71,6 +70,8 @@ class SearchViewController : BaseViewController<SearchContract.View, SearchContr
     }
 
     override fun onSearchError(throwable: Throwable) {
+        viewState.setShowError()
+        recyclerViewAdapter.updateRepos(emptyList())
         Timber.e(throwable)
         showMessage(R.string.error_loading_repos)
     }
