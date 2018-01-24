@@ -39,17 +39,17 @@ class GreetingViewController : MvpViewStateController<GreetingContract.View, Gre
 
     @OnClick(R.id.hello_greeting_button)
     override fun onGreetingButtonClicked() {
-        viewState.setShowLoading()
         presenter.loadGreeting()
     }
 
     override fun showGreeting(greetingText: String) {
-        greetingTextView.visibility = View.VISIBLE
         viewState.setData(greetingText)
+        greetingTextView.visibility = View.VISIBLE
         greetingTextView.text = greetingText
     }
 
     override fun showLoading() {
+        viewState.setShowLoading()
         greetingTextView.visibility = View.GONE
         loadingIndicator.visibility = View.VISIBLE
     }
@@ -59,6 +59,7 @@ class GreetingViewController : MvpViewStateController<GreetingContract.View, Gre
     }
 
     override fun showError() {
+        viewState.setShowError()
         Toast.makeText(applicationContext, applicationContext?.getString(R.string.greeting_loading_error), Toast.LENGTH_LONG).show()
     }
 }

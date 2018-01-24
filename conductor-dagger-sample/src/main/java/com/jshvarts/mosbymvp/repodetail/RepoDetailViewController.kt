@@ -45,6 +45,7 @@ class RepoDetailViewController : BaseViewController<RepoDetailContract.View, Rep
     }
 
     override fun onLoadRepoError(throwable: Throwable) {
+        viewState.setShowError()
         Timber.e(throwable)
         showMessage(R.string.error_loading_repo_detail)
     }
