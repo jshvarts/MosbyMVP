@@ -64,7 +64,7 @@ class SearchViewController : BaseViewController<SearchContract.View, SearchContr
     }
 
     override fun onSearchSuccess(repos: List<GithubRepo>) {
-        viewState.setData(ArrayList(repos))
+        viewState.setData(repos)
         recyclerView.visibility = View.VISIBLE
         recyclerViewAdapter.updateRepos(repos)
     }

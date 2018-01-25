@@ -13,9 +13,9 @@ class SearchViewState : ViewState<SearchContract.View> {
 
     private var state = STATE_DO_NOTHING
 
-    private var data: ArrayList<GithubRepo>? = null
+    private var data: List<GithubRepo>? = null
 
-    fun setData(data: ArrayList<GithubRepo>) {
+    fun setData(data: List<GithubRepo>) {
         state = STATE_SHOW_DATA
         this.data = data
     }
