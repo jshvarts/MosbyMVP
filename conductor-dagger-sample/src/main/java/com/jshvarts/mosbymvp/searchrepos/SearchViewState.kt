@@ -1,12 +1,10 @@
 package com.jshvarts.mosbymvp.searchrepos
 
-import android.os.Bundle
-import com.hannesdorfmann.mosby3.mvp.viewstate.RestorableViewState
+import com.hannesdorfmann.mosby3.mvp.viewstate.ViewState
 import com.jshvarts.mosbymvp.domain.GithubRepo
 
-class SearchViewState : RestorableViewState<SearchContract.View> {
+class SearchViewState : ViewState<SearchContract.View> {
     companion object {
-        private const val KEY_DATA = "com.jshvarts.mosbymvp.searchrepos.SearchViewState_searchResults"
         private const val STATE_DO_NOTHING = 0
         private const val STATE_SHOW_DATA = 1
         private const val STATE_SHOW_LOADING = 2
@@ -15,18 +13,9 @@ class SearchViewState : RestorableViewState<SearchContract.View> {
 
     private var state = STATE_DO_NOTHING
 
-    private var data: ArrayList<GithubRepo>? = null
+    private var data: List<GithubRepo>? = null
 
-    override fun saveInstanceState(out: Bundle) = out.putParcelableArrayList(KEY_DATA, data)
-
-    override fun restoreInstanceState(bundle: Bundle?): RestorableViewState<SearchContract.View>? {
-        return bundle?.run {
-            data = getParcelableArrayList(KEY_DATA)
-            this@SearchViewState
-        }
-    }
-
-    fun setData(data: ArrayList<GithubRepo>) {
+    fun setData(data: List<GithubRepo>) {
         state = STATE_SHOW_DATA
         this.data = data
     }
