@@ -5,4 +5,5 @@ include ':common',
         ':conductor-hello-world',
         ':conductor-hello-world-viewstate',
         ':conductor-lce-pull-to-refresh-viewstate',
-        ':conductor-dagger-sample'
+        ':conductor-dagger-sample',
+        ':conductor-dagger-sample-moshi'
