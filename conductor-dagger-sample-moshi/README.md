@@ -29,3 +29,25 @@ Instead of extending `MvpBasePresenter`, the Presenters could implement `MvpPres
 Alternatively, the Presenters could extend Mosby's `MvpNullObjectBasePresenter` to avoid checks to see if the View is attached. However, this *could* result in some performance degradation as the this Presenter uses Reflection internally. This requires adding a new Gradle dependency `com.hannesdorfmann.mosby3:mvp-nullobject-presenter`.
 
 Alternatively, the Presenters could extend Mosby's `MvpQueuingBasePresenter` to guarantee that the calls to View will be queued up and replayed if and when the View gets attached again. This requires adding a new Gradle dependency `com.hannesdorfmann.mosby3:mvp-queueing-presenter`.
+
+## Network Caching
+
+After adding Cache-Control of 2 mins:
+
+**Original request:**
+
+D/OkHttp: <-- 200 OK https://api.github.com/users/jshvarts/repos (252ms)
+D/OkHttp: Date: Wed, 24 Oct 2018 22:32:30 GMT
+D/OkHttp: Cache-Control: max-age=120
+
+**Second request 1 minutes later (request hits cache):**
+
+D/OkHttp: <-- 200 OK https://api.github.com/users/jshvarts/repos (13ms)
+D/OkHttp: Date: Wed, 24 Oct 2018 22:32:30 GMT
+
+Note: faster response time and same Date as before.
+
+**After several minutes (request does not hit cache):**
+
+D/OkHttp: <-- 200 OK https://api.github.com/users/jshvarts/repos (339ms)
+D/OkHttp: Date: Wed, 24 Oct 2018 22:37:54 GMT
